@@ -1,35 +1,61 @@
 #include<iostream>
 using namespace std;
 
-const int MAX_NAME = 16;
-struct Student 
+enum ConpareResult
 {
-	char name[MAX_NAME + 1];
-	int score_japanese;
-	int score_math;
-	int score_English;
+	CR_LESS_THAN,		//ÇÊÇËè¨Ç≥Ç¢
+	CR_EQUAL_TO,		//ìôÇµÇ¢
+	CR_GREATER_THAN		//ÇÊÇËëÂÇ´Ç¢
+
 };
 
-void ShowScore(const Student* pointer)
+ConpareResult Compare(int a, int b)
 {
-	cout << "ñºëO: " << pointer->name << endl
-		<< "çëåÍ: " << pointer->score_japanese << flush
-		<< "êîäw: " << pointer->score_math << flush
-		<< "âpåÍ: " << pointer->score_English << endl;
+	if (a < b)
+	{
+		return CR_LESS_THAN;
+	}
+	else if (a > b)
+	{
+		return CR_GREATER_THAN;
+	}
+	else
+	{
+		return CR_EQUAL_TO;
+	}
+}
+
+bool Compare()
+{
+	int a, b;
+
+	cout << "êîéöÇ2Ç¬ì¸óÕÇµÇƒâ∫Ç≥Ç¢ > " << flush;
+	cin >> a >> b;
+	if (a == -1)
+	{
+		return false;
+	}
+
+	switch (Compare(a, b))
+	{
+	case CR_LESS_THAN:
+		cout << "ëOé“ÇÕå„é“ÇÊÇËè¨Ç≥Ç¢Ç≈Ç∑ÅB" << endl;
+		break;
+	case CR_GREATER_THAN:
+		cout << "ëOé“ÇÕå„é“ÇÊÇËëÂÇ´Ç¢Ç≈Ç∑ÅB" << endl;
+		break;
+	case CR_EQUAL_TO:
+		cout << "óºé“ÇÕìôÇµÇ¢Ç≈Ç∑ÅB" << endl;
+		break;
+	}
+	return true;
 }
 
 int main()
 {
-	Student student[] =
-	{ 
-	{"ì˙ìoózãP",73,98,86,},
-	{"ìÏïîóDêl",64,45,40,},
-	{"ãgìcäê",76,78,69},
-	};
-	int size = sizeof student / sizeof * student;
-
-	for (int i = 0; i < size; i++)
+	while (Compare())
 	{
-		ShowScore(&student[i]);
+		//âΩÇ‡ÇµÇ»Ç¢
 	}
+
 }
