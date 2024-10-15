@@ -10,12 +10,12 @@ struct Student
 	int score_English;
 };
 
-void ShowScore(const Student& student)
+void ShowScore(const Student* pointer)
 {
-	cout << "–¼‘O: " << student.name << endl
-		<< "‘Œê: " << student.score_japanese << flush
-		<< "”Šw: " << student.score_math << flush
-		<< "‰pŒê: " << student.score_English << endl;
+	cout << "–¼‘O: " << pointer->name << endl
+		<< "‘Œê: " << pointer->score_japanese << flush
+		<< "”Šw: " << pointer->score_math << flush
+		<< "‰pŒê: " << pointer->score_English << endl;
 }
 
 int main()
@@ -30,6 +30,6 @@ int main()
 
 	for (int i = 0; i < size; i++)
 	{
-		ShowScore(student[i]);
+		ShowScore(&student[i]);
 	}
 }
