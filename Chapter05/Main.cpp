@@ -1,15 +1,24 @@
 #include<iostream>
 using namespace std;
 
+void Func(int a = 0)
+{
+	cout << (size_t)&a << endl;
+}
+
+void Func2()
+{
+	Func();
+	
+}
+
 int main()
 {
-	int a, b;
-
-	cout << "2つの値を入力して下さい > " << flush;
-	cin >> a >> b;
-
-	cout << "大きい方の値は " << (a > b ? a : b) << " です。" << endl;
-
+	Func();
+	Func2();
+	Func();
+	//関数を通してaのアドレスを表示している
+	//他の関数を通すとアドレスが変わる
 }
 
 
