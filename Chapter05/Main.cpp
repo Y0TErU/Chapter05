@@ -1,16 +1,13 @@
 #include<iostream>
 using namespace std;
 
-static int a = 2;
-
-static void Func1()
+int main()
 {
-	cout << "a(1) = " << a << endl;
+	int* p = new int;	//メモリを動的に確保する
 
-}
+	*p = 0;				//ポインタの変数をそのまま使用して値を書き換えることができる
+	cout << *p << endl;
 
-void Func2()
-{
-	Func1();
+	delete p;
 
 }
